@@ -1,0 +1,50 @@
+[package]
+name = "arm64-soc-emulator"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clap = { version = "4.5.54", features = ["derive"] }
+colored = "3"
+config = "0.15.19"
+thiserror = "2.0.17"
+tracing = "0.1.44"
+tracing-subscriber = "0.3.22"
+
+[lints.rust]
+unsafe_code = "warn"
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+nursery = { level = "warn", priority = -1 }
+cast_possible_truncation = "allow"
+cast_sign_loss = "allow"
+cast_lossless = "allow"
+cast_possible_wrap = "allow"
+# doc lints - not needed for learning project
+missing_errors_doc = "allow"
+missing_panics_doc = "allow"
+# stylistic - not worth the noise
+module_name_repetitions = "allow"
+must_use_candidate = "allow"
+missing_const_for_fn = "allow"
+wildcard_imports = "allow"
+needless_continue = "allow"
+unnecessary_literal_bound = "allow"
+similar_names = "allow"
+too_many_lines = "allow"
+unreadable_literal = "allow"
+cognitive_complexity = "allow"
+# emulator has many functions that could be static but may need self later
+unused_self = "allow"
+# decoder/executor pattern returns Result for uniformity even when infallible
+unnecessary_wraps = "allow"
+# match arms often intentionally similar in instruction decoding
+match_same_arms = "allow"
+struct_excessive_bools = "allow"
+# match on Option is clearer than map_or for complex return types
+option_if_let_else = "allow"
+# bit masks are explicit and readable
+verbose_bit_mask = "allow"
+# small enum Copy types &self is fine for consistency
+trivially_copy_pass_by_ref = "allow"

@@ -1,0 +1,11 @@
+/target
+*.swp
+*.swo
+*~
+.DS_Store
+.direnv/
+result
+result-*
+*.log
+tests/*.bin
+tests/*.elf
