@@ -9,3 +9,6 @@ result-*
 *.log
 tests/*.bin
 tests/*.elf
+bins/*.bin
+bins/*.elf
+.zig-cache
