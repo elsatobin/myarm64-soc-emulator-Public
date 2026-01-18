@@ -60,16 +60,7 @@ asm:
 # assemble all .s files in ./bins
 [group('build')]
 asm_bins:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    for src in bins/*.s; do
-        [ -f "$src" ] || continue
-        name="${src%.s}"
-        echo "assembling $src -> ${name}.bin"
-        zig cc -target aarch64-freestanding-none -nostdlib -Wl,-T,tests/link.ld -o "${name}.elf" "$src"
-        zig objcopy -O binary "${name}.elf" "${name}.bin"
-        rm "${name}.elf"
-    done
+    zig build asm-bins
 
 # show macro expansion
 [group('tools')]
